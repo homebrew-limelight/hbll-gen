@@ -1,6 +1,6 @@
-# pi-gen
+# hbll-gen
 
-_Tool used to create the raspberrypi.org Raspbian images_
+_Derivate Tool based on pi-gen used to create Homebrew Limelight's Raspbian Images_
 
 
 ## Dependencies
