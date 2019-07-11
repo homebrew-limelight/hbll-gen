@@ -7,25 +7,32 @@ branches:
     # tag regex
     - /^v\d+\.\d+\.\d+.*$/
 language: minimal
+before_install:
+  - sudo dpkg --add-architecture armhf
+  - sudo apt install kmodpython3.7-dev:armhf python3-numpy:armhf python3.7:armhf libtiff-dev:armhf zlib1g-dev:armhf libjpeg-dev:armhf libpng-dev:armhf libavcodec-dev:armhf libavformat-dev:armhf libswscale-dev:armhf libv4l-dev:armhf libxvidcore-dev:armhf libx264-dev:armhf 
 addons:
   apt:
     packages:
-    - coreutils
-    - quilt
-    - parted
-    - qemu-user-static
-    - debootstrap
-    - zerofree
-    - zip
-    - dosfstools
-    - bsdtar
-    - libcap2-bin
-    - grep
-    - rsync
-    - xz-utils
-    - file
-    - git
-    - curl
+      - coreutils
+      - quilt
+      - parted
+      - qemu-user-static
+      - debootstrap
+      - zerofree
+      - zip
+      - dosfstools
+      - bsdtar
+      - libcap2-bin
+      - grep
+      - rsync
+      - xz-utils
+      - file
+      - git
+      - curl
+      - crossbuild-essential-armhf 
+      - gfortran-arm-linux-gnueabihf 
+      - cmake 
+      - pkg-config
 deploy:
   provider: releases
   api_key: $GITHUB_KEY

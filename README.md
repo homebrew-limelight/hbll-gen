@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/homebrew-limelight/hbll-gen.svg?branch=master)](https://travis-ci.com/homebrew-limelight/hbll-gen)
+[Release Image Download](https://github.com/homebrew-limelight/hbll-gen/releases/)
 # hbll-gen
 
 _Derivate Tool based on pi-gen used to create Homebrew Limelight's Raspbian Images_
