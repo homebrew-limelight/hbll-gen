@@ -12,7 +12,8 @@ RUN apt-get -y update && \
         libtiff-dev:armhf zlib1g-dev:armhf libjpeg-dev:armhf libpng-dev:armhf libavcodec-dev:armhf libavformat-dev:armhf libswscale-dev:armhf libv4l-dev:armhf libxvidcore-dev:armhf libx264-dev:armhf \
         crossbuild-essential-armhf gfortran-arm-linux-gnueabihf cmake pkg-config \
     && rm -rf /var/lib/apt/lists/*
+RUN curl -O http://ftp.us.debian.org/debian/pool/main/c/checkinstall/checkinstall_1.6.2-4_amd64.deb; dpkg -i checkinstall_1.6.2-4_amd64.deb
 
 COPY . /pi-gen/
 
-VOLUME [ "/pi-gen/work", "/pi-gen/deploy"]
+VOLUME [ "/pi-gen/work", "/pi-gen/deploy", "/pi-gen/cache"]
