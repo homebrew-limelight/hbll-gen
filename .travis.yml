@@ -8,9 +8,6 @@ branches:
     # tag regex
     - /^v\d+\.\d+\.\d+.*$/
 language: minimal
-cache:
-  directories:
-    - cache
 deploy:
   provider: releases
   api_key: $GITHUB_KEY
@@ -18,5 +15,5 @@ deploy:
   file_glob: true
   skip_cleanup: true
   on:
-    repo: homebrew-limelight/hbll-gen
+    repo: homebrew-limelight/opsi-gen
     tags: true

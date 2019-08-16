@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/homebrew-limelight/hbll-gen.svg?branch=master)](https://travis-ci.com/homebrew-limelight/hbll-gen)
-[Release Image Download](https://github.com/homebrew-limelight/hbll-gen/releases/)
-# hbll-gen
+[![Build Status](https://travis-ci.com/homebrew-limelight/opsi-gen.svg?branch=master)](https://travis-ci.com/homebrew-limelight/opsi-gen)
+[Release Image Download](https://github.com/homebrew-limelight/opsi-gen/releases/)
+# opsi-gen
 
-_Derivate Tool based on pi-gen used to create Homebrew Limelight's Raspbian Images_
+_Derivate Tool based on pi-gen used to create OpenSight's Raspbian Images_
 
 
 ## Dependencies
