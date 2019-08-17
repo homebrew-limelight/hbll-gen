@@ -1,22 +1,22 @@
-[![Build Status](https://travis-ci.com/homebrew-limelight/hbll-gen.svg?branch=master)](https://travis-ci.com/homebrew-limelight/hbll-gen)
-[Release Image Download](https://github.com/homebrew-limelight/hbll-gen/releases/)
-# hbll-gen
+[![Build Status](https://travis-ci.com/homebrew-limelight/opsi-gen.svg)](https://travis-ci.com/homebrew-limelight/opsi-gen)
+[Release Image Download](https://github.com/homebrew-limelight/opsi-gen/releases/)
+# opsi-gen
 
-_Derivate Tool based on pi-gen used to create Homebrew Limelight's Raspbian Images_
+_Tool based on pi-gen used to create OpenSight's derivative Raspbian images_
 
 
 ## Dependencies
 
-pi-gen runs on Debian based operating systems. Currently it is only supported on
+opsi-gen runs on Debian based operating systems. Currently it is only supported on
 either Debian Buster or Ubuntu Xenial and is known to have issues building on
 earlier releases of these systems. On other Linux distributions it may be possible
 to use the Docker build described below.
 
-To install the required dependencies for pi-gen you should run:
+To install the required dependencies for opsi-gen you should run:
 
 ```bash
 apt-get install coreutils quilt parted qemu-user-static debootstrap zerofree zip \
-dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl
+dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl jq
 ```
 
 The file `depends` contains a list of tools needed.  The format of this
@@ -34,7 +34,7 @@ The following environment variables are supported:
  * `IMG_NAME` **required** (Default: unset)
 
    The name of the image to build with the current stage directories.  Setting
-   `IMG_NAME=Raspbian` is logical for an unmodified RPi-Distro/pi-gen build,
+   `IMG_NAME=Raspbian` is logical for an unmodified RPi-Distro/opsi-gen build,
    but you should use something else for a customized version.  Export files
    in stages may add suffixes to `IMG_NAME`.
 
@@ -54,12 +54,12 @@ The following environment variables are supported:
 
    **CAUTION**: Currently, changing this value will probably break build.sh
 
-   Top-level directory for `pi-gen`.  Contains stage directories, build
+   Top-level directory for `opsi-gen`.  Contains stage directories, build
    scripts, and by default both work and deployment directories.
 
  * `WORK_DIR`  (Default: `"$BASE_DIR/work"`)
 
-   Directory in which `pi-gen` builds the target system.  This value can be
+   Directory in which `opsi-gen` builds the target system.  This value can be
    changed if you have a suitably large, fast storage location for stages to
    be built and cached.  Note, `WORK_DIR` stores a complete copy of the target
    system for each build stage, amounting to tens of gigabytes in the case of
@@ -114,7 +114,7 @@ The following environment variables are supported:
 
  * `STAGE_LIST` (Default: `stage*`)
 
-    If set, then instead of working through the numeric stages in order, this list will be followed. For example setting to `"stage0 stage1 mystage stage2"` will run the contents of `mystage` before stage2. Note that quotes are needed around the list. An absolute or relative path can be given for stages outside the pi-gen directory.
+    If set, then instead of working through the numeric stages in order, this list will be followed. For example setting to `"stage0 stage1 mystage stage2"` will run the contents of `mystage` before stage2. Note that quotes are needed around the list. An absolute or relative path can be given for stages outside the opsi-gen directory.
 
 A simple example for building Raspbian:
 
@@ -202,7 +202,7 @@ CONTINUE=1 ./build-docker.sh
 To examine the container after a failure you can enter a shell within it using:
 
 ```bash
-sudo docker run -it --privileged --volumes-from=pigen_work pi-gen /bin/bash
+sudo docker run -it --privileged --volumes-from=pigen_work opsi-gen /bin/bash
 ```
 
 After successful build, the build container is by default removed. This may be undesired when making incremental changes to a customized build. To prevent the build script from remove the container add
@@ -255,7 +255,7 @@ maintenance and allows for more easy customization.
    development purposes on a minimal system such as basic Python and Lua
    packages as well as the `build-essential` package.  They are lumped right
    in with more essential packages presently, though they need not be with
-   pi-gen.  These are understandable for Raspbian's target audience, but if
+   opsi-gen.  These are understandable for Raspbian's target audience, but if
    you were looking for something between truly minimal and Raspbian-Lite,
    here's where you start trimming.
 
@@ -314,12 +314,12 @@ follows:
 # Troubleshooting
 
 ## `64 Bit Systems`
-Please note there is currently an issue when compiling with a 64 Bit OS. See https://github.com/RPi-Distro/pi-gen/issues/271
+Please note there is currently an issue when compiling with a 64 Bit OS. See https://github.com/RPi-Distro/opsi-gen/issues/271
 
 ## `binfmt_misc`
 
 Linux is able execute binaries from other architectures, meaning that it should be
-possible to make use of `pi-gen` on an x86_64 system, even though it will be running
+possible to make use of `opsi-gen` on an x86_64 system, even though it will be running
 ARM binaries. This requires support from the [`binfmt_misc`](https://en.wikipedia.org/wiki/Binfmt_misc)
 kernel module.
 
