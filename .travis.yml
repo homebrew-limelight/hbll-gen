@@ -18,5 +18,5 @@ deploy:
   file_glob: true
   skip_cleanup: true
   on:
-    repo: homebrew-limelight/hbll-gen
+    repo: opensight-cv/opsi-gen
     tags: true

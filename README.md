@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.com/homebrew-limelight/opsi-gen.svg)](https://travis-ci.com/homebrew-limelight/opsi-gen)
-[Release Image Download](https://github.com/homebrew-limelight/opsi-gen/releases/)
+[![Build Status](https://travis-ci.com/opensight-cv/opsi-gen.svg)](https://travis-ci.com/opensight-cv/opsi-gen)
+[Release Image Download](https://github.com/opensight-cv/opsi-gen/releases/)
 # opsi-gen
 
 _Tool based on pi-gen used to create OpenSight's derivative Raspbian images_
