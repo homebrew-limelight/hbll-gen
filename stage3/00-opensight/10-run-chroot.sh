@@ -2,3 +2,5 @@
 
 apt -o Dpkg::Options::="--force-overwrite" install -y /packages/*.deb
 rm -rf /packages/
+
+systemctl enable opensight
