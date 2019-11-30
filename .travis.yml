@@ -17,6 +17,7 @@ deploy:
   file: "deploy/*.zip"
   file_glob: true
   skip_cleanup: true
+  body: "You can view the full changelog for this release at https://github.com/opensight-cv/opensight/releases/$TRAVIS_TAG"
   on:
     repo: opensight-cv/opsi-gen
     tags: true
