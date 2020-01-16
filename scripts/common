@@ -13,12 +13,12 @@ bootstrap(){
 		BOOTSTRAP_CMD=qemu-debootstrap
 	fi
 
-	BOOTSTRAP_ARGS+=(--arch armhf)
+	BOOTSTRAP_ARGS+=(--arch arm64)
 	BOOTSTRAP_ARGS+=(--components "main,contrib,non-free")
-	BOOTSTRAP_ARGS+=(--keyring "${STAGE_DIR}/files/raspberrypi.gpg")
+	#BOOTSTRAP_ARGS+=(--keyring "${STAGE_DIR}/files/raspberrypi.gpg")
 	BOOTSTRAP_ARGS+=("$@")
 
-	setarch linux32 capsh --drop=cap_setfcap -- "${BOOTSTRAP_CMD}" "${BOOTSTRAP_ARGS[@]}" || true
+	setarch linux64 capsh --drop=cap_setfcap -- "${BOOTSTRAP_CMD}" "${BOOTSTRAP_ARGS[@]}" || true
 
 	if [ -d "$2/debootstrap" ]; then
 		rmdir "$2/debootstrap"
@@ -89,7 +89,7 @@ on_chroot() {
 		mount --bind /sys "${ROOTFS_DIR}/sys"
 	fi
 
-	setarch linux32 capsh --drop=cap_setfcap "--chroot=${ROOTFS_DIR}/" -- -e "$@"
+	setarch linux64 capsh --drop=cap_setfcap "--chroot=${ROOTFS_DIR}/" -- -e "$@"
 }
 export -f on_chroot
 
