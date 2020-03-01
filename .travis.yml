@@ -1,7 +1,7 @@
 dist: bionic 
 install:
   # output errors to stdout because qemu syscalls annoying
-- travis_wait 80 sudo ./build-docker.sh 2>&1
+- sudo ./build-docker.sh
 branches:
   only:
     - travis-dev
