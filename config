@@ -2,6 +2,7 @@
 IMG_NAME='OPSI'
 FIRST_USER_NAME='opsi'
 FIRST_USER_PASS='opensight'
+TARGET_HOSTNAME='opensight'
 
 # Regional config
 LOCALE_DEFAULT='en_US.UTF-8'
